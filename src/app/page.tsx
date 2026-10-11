@@ -1,4 +1,5 @@
 import AllProduct from "@/components/AllProduct";
+import HeroBanner from "@/components/Hero";
 import PriceDown from "@/components/PriceDown";
 import PriceUp from "@/components/PriceUp";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
@@ -7,6 +8,7 @@ export default function Home() {
   return (
     <div className="">
       {/* <HeroBanner /> */}
+      <HeroBanner />
 
       <div className="">
         <div className="container mx-auto mt-10 ">
