@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { toast } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
 
@@ -45,7 +46,20 @@ const ProfilePage = () => {
           {/* User Info Card */}
           <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-4">
-              <img src={user?.image || ""} alt={user?.name || "Profile"} />
+              <div className="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full bg-green-100 text-2xl font-bold text-green-800">
+                {user.image ? (
+                  <Image
+                    src={user.image}
+                    alt={`${user.name} এর প্রোফাইল ছবি`}
+                    width={80}
+                    height={80}
+                    unoptimized
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  user.name.charAt(0).toUpperCase()
+                )}
+              </div>
               <div>
                 <h3 className="text-xl font-semibold text-gray-800">{user.name}</h3>
                 <p className="text-gray-500 text-sm">{user.email}</p>
