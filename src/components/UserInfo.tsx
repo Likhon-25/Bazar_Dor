@@ -1,3 +1,5 @@
+"use client";
+
 import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import Image from "next/image";
@@ -16,21 +18,21 @@ const UserInfo = () => {
         
         <details className="group relative">
           <summary className="flex cursor-pointer list-none items-center gap-2 rounded-full border border-[#dfe8e0] bg-white py-1.5 pl-1.5 pr-3 text-sm font-semibold text-[#1d271f] shadow-sm transition hover:border-[#b7d8c2] hover:bg-[#f8fbf8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#05893e] [&::-webkit-details-marker]:hidden">
-            <Link href={"/profile"}>
-            <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full bg-[#e8f4eb] text-sm font-bold text-[#047f39] ring-2 ring-[#d9eddf]">
-              {user.image ? (
-                <Image
-                  src={user.image}
-                  alt=""
-                  width={36}
-                  height={36}
-                  unoptimized
-                  className="h-full w-full object-cover"
-                />
-              ) : (
-                user.name.charAt(0).toUpperCase()
-              )}
-            </div>
+            <Link href={"/profile"} className="shrink-0">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#e8f4eb] text-sm font-bold text-[#047f39] ring-2 ring-[#d9eddf]">
+                {user.image ? (
+                  <Image
+                    src={user.image}
+                    alt=""
+                    width={36}
+                    height={36}
+                    unoptimized
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  user.name.charAt(0).toUpperCase()
+                )}
+              </div>
             </Link>
             <span className="hidden max-w-28 truncate sm:block">{user.name}</span>
             <span aria-hidden="true" className="text-xs text-[#657168]">
