@@ -18,6 +18,7 @@ export interface SortableProduct {
 interface SortedProductGridProps {
   products: SortableProduct[];
   gridClassName?: string;
+  showSort?: boolean;
 }
 
 type SortOrder = "default" | "lowToHigh" | "highToLow";
@@ -25,6 +26,7 @@ type SortOrder = "default" | "lowToHigh" | "highToLow";
 const SortedProductGrid = ({
   products,
   gridClassName = "grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4",
+  showSort = true,
 }: SortedProductGridProps) => {
   const [sortOrder, setSortOrder] = useState<SortOrder>("default");
 
@@ -38,21 +40,23 @@ const SortedProductGrid = ({
 
   return (
     <>
-      <div className="mb-6 flex justify-end">
-        <label className="flex items-center gap-2 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm">
-          <span>সাজান:</span>
-          <select
-            aria-label="পণ্যের দাম অনুযায়ী সাজান"
-            value={sortOrder}
-            onChange={(event) => setSortOrder(event.target.value as SortOrder)}
-            className="bg-transparent pr-1 outline-none"
-          >
-            <option value="default">ডিফল্ট</option>
-            <option value="lowToHigh">দাম: কম থেকে বেশি</option>
-            <option value="highToLow">দাম: বেশি থেকে কম</option>
-          </select>
-        </label>
-      </div>
+      {showSort && (
+        <div className="mb-6 flex justify-end">
+          <label className="flex items-center gap-2 rounded-xl border border-gray-300 bg-white px-3 py-2 text-sm font-medium text-gray-700 shadow-sm">
+            <span>সাজান:</span>
+            <select
+              aria-label="পণ্যের দাম অনুযায়ী সাজান"
+              value={sortOrder}
+              onChange={(event) => setSortOrder(event.target.value as SortOrder)}
+              className="bg-transparent pr-1 outline-none"
+            >
+              <option value="default">ডিফল্ট</option>
+              <option value="lowToHigh">দাম: কম থেকে বেশি</option>
+              <option value="highToLow">দাম: বেশি থেকে কম</option>
+            </select>
+          </label>
+        </div>
+      )}
 
       {sortedProducts.length > 0 ? (
         <div className={`grid ${gridClassName}`}>

@@ -25,7 +25,7 @@ const CategoryId = async ({ params }: { params: Promise<{ categoryId: string }> 
   const categoryName = categoryProduct[0]?.categoryNameBn ?? "পণ্য";
 
   return (
-    <CategoreyProductsList
+    <CategoryProductsList
       products={categoryProduct}
       categoryIcon={categoryIcon}
       categoryName={categoryName}
