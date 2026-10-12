@@ -31,12 +31,12 @@ const HeroBanner = () => {
             বিস্তারিত, গড়, সর্বনিম্ন-সর্বাধিক এবং দামের পরিবর্তন এক জায়গায়।
           </p>
 
-          <button
-            type="button"
+          <a
+            href="#all-products"
             className="btn mt-8 border-0 bg-[#078c43] px-6 py-4 text-white hover:bg-[#067638]"
           >
             সব পণ্য দেখুন
-          </button>
+          </a>
         </div>
 
         <div className="relative flex w-full shrink-0 items-center justify-center md:w-[35%]">

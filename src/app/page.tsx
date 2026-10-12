@@ -26,7 +26,7 @@ export default function Home() {
           </div>
           <PriceDown />
         </div>
-        <div className="container mx-auto mt-10">
+        <div id="all-products" className="container mx-auto mt-10">
           <h2 className="text-2xl font-bold mb-5">সব পণ্য</h2>
           <AllProduct />
         </div>
